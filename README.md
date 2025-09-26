@@ -32,6 +32,13 @@ Proyecto final del curso de Python con Django. Blog avanzado con sistema de usua
 - `/blog/` - Blog original (mantenido)
 - `/admin/` - Panel administración
 
+## Video Demostrativo
+
+Puedes ver la demostración completa del proyecto en:
+- **Google Drive:** [\[Link al video\]](https://drive.google.com/file/d/1R4binSiewF_MINHALvXymIgfDX3ZQY_A/view?usp=sharing)
+
+Duración: 8 minutos
+
 ## Instalación
 
 1. Clonar repositorio:
