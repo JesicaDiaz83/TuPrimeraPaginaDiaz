@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}Crear Página - Mi Blog Final{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-10">
+        <div class="card">
+            <div class="card-header">
+                <h4><i class="fas fa-plus"></i> Crear Nueva Página</h4>
+            </div>
+            <div class="card-body">
+                {{ form.media }}
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Título</label>
+                        {{ form.title }}
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Subtítulo</label>
+                        {{ form.subtitle }}
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Imagen</label>
+                        {{ form.image }}
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Contenido</label>
+                        {{ form.content }}
+                    </div>
+                    
+                    <button type="submit" class="btn btn-success">
+                        <i class="fas fa-save"></i> Crear Página
+                    </button>
+                    <a href="{% url 'pages:list' %}" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i> Cancelar
+                    </a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

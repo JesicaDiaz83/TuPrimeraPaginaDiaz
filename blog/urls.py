@@ -1,6 +1,8 @@
 from django.urls import path
 from . import views
 
+app_name = 'blog' 
+
 urlpatterns = [
     path('', views.inicio, name='inicio'),
     path('crear-autor/', views.crear_autor, name='crear_autor'),

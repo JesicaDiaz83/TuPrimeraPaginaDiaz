@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}Mis Mensajes - Mi Blog Final{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <h4><i class="fas fa-inbox"></i> Mis Mensajes</h4>
+        
+        <a href="{% url 'messenger:send' %}" class="btn btn-primary mb-3">
+            <i class="fas fa-plus"></i> Nuevo Mensaje
+        </a>
+        
+        {% if messages %}
+            <div class="card">
+                <div class="card-body">
+                    {% for message in messages %}
+                        <div class="border-bottom py-3">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <strong>De: {{ message.sender.username }}</strong>
+                                </div>
+                                <div class="col-md-6">
+                                    <strong>{{ message.subject }}</strong>
+                                </div>
+                                <div class="col-md-3 text-end">
+                                    <small class="text-muted">{{ message.created_at|date:"d/m/Y H:i" }}</small>
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col-md-12">
+                                    <p class="text-muted">{{ message.content|truncatewords:20 }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% else %}
+            <div class="alert alert-info">
+                <h5>No tienes mensajes</h5>
+                <p>Cuando recibas mensajes aparecerán aquí.</p>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

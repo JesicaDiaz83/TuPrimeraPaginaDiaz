@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}Acerca de - Mi Blog Final{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h4><i class="fas fa-user"></i> Acerca de mí</h4>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4 text-center">
+                        {% if profile.avatar %}
+                            <img src="{{ profile.avatar.url }}" class="img-fluid rounded-circle mb-3" style="width: 150px; height: 150px; object-fit: cover;">
+                        {% else %}
+                            <div class="bg-secondary rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 150px; height: 150px;">
+                                <i class="fas fa-user fa-3x text-white"></i>
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="col-md-8">
+                        <h5>{{ user.username }}</h5>
+                        
+                        {% if profile.first_name or profile.last_name %}
+                            <p><strong>Nombre:</strong> {{ profile.first_name }} {{ profile.last_name }}</p>
+                        {% endif %}
+                        
+                        {% if profile.email %}
+                            <p><strong>Email:</strong> {{ profile.email }}</p>
+                        {% endif %}
+                        
+                        {% if profile.birth_date %}
+                            <p><strong>Fecha de nacimiento:</strong> {{ profile.birth_date }}</p>
+                        {% endif %}
+                        
+                        {% if profile.biography %}
+                            <p><strong>Biografía:</strong></p>
+                            <p>{{ profile.biography }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+                
+                <hr>
+                <p class="text-muted">¡Bienvenido a mi blog personal! Aquí comparto mis ideas y experiencias.</p>
+                
+                <a href="{% url 'pages:list' %}" class="btn btn-primary">
+                    <i class="fas fa-arrow-left"></i> Volver al inicio
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

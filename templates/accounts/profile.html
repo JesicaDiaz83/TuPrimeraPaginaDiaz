@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block title %}Mi Perfil - Mi Blog Final{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h4><i class="fas fa-user-edit"></i> Mi Perfil</h4>
+            </div>
+            <div class="card-body">
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Nombre</label>
+                            {{ form.first_name }}
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Apellido</label>
+                            {{ form.last_name }}
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        {{ form.email }}
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Avatar</label>
+                        {{ form.avatar }}
+                        {% if user.profile.avatar %}
+                            <div class="mt-2">
+                                <img src="{{ user.profile.avatar.url }}" style="width: 100px;" class="img-thumbnail">
+                            </div>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Biografía</label>
+                        {{ form.biography }}
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Fecha de nacimiento</label>
+                        {{ form.birth_date }}
+                    </div>
+                    
+                    <button type="submit" class="btn btn-success">
+                        <i class="fas fa-save"></i> Guardar Cambios
+                    </button>
+                    <a href="{% url 'pages:list' %}" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i> Volver
+                    </a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

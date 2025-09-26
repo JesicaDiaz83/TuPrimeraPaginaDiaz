@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block title %}Páginas - Mi Blog Final{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <h1>Páginas</h1>
+        
+        {% if user.is_authenticated %}
+            <a href="{% url 'pages:create' %}" class="btn btn-primary mb-3">
+                <i class="fas fa-plus"></i> Nueva Página
+            </a>
+        {% endif %}
+        
+        {% if pages %}
+            <div class="row">
+                {% for page in pages %}
+                    <div class="col-md-6 mb-4">
+                        <div class="card">
+                            {% if page.image %}
+                                <img src="{{ page.image.url }}" class="card-img-top" alt="{{ page.title }}" style="height: 200px; object-fit: cover;">
+                            {% endif %}
+                            <div class="card-body">
+                                <h5 class="card-title">{{ page.title }}</h5>
+                                {% if page.subtitle %}
+                                    <h6 class="card-subtitle mb-2 text-muted">{{ page.subtitle }}</h6>
+                                {% endif %}
+                                <p class="card-text">{{ page.content|striptags|truncatewords:20 }}</p>
+                                <a href="{% url 'pages:detail' slug=page.slug %}" class="btn btn-primary">
+                                    Leer más
+                                </a>
+                                
+                                {% if user == page.author %}
+                                    <a href="{% url 'pages:edit' slug=page.slug %}" class="btn btn-sm btn-outline-secondary">
+                                        Editar
+                                    </a>
+                                    <a href="{% url 'pages:delete' slug=page.slug %}" class="btn btn-sm btn-outline-danger">
+                                        Eliminar
+                                    </a>
+                                {% endif %}
+                            </div>
+                            <div class="card-footer text-muted">
+                                Por {{ page.author.username }} - {{ page.created_date }}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="alert alert-info">
+                <h4>No hay páginas aún</h4>
+                <p>¡Sé el primero en crear una página!</p>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'pages:create' %}" class="btn btn-primary">Crear Primera Página</a>
+                {% else %}
+                    <a href="{% url 'accounts:signup' %}" class="btn btn-primary">Registrarse para Crear</a>
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
