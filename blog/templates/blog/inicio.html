@@ -12,7 +12,7 @@
                 <p class="lead">Un espacio para compartir ideas, experiencias y conocimientos</p>
                 <hr class="my-4" style="border-color: white;">
                 <p>Explora nuestras últimas publicaciones y únete a la conversación</p>
-                <a class="btn btn-light btn-lg" href="{% url 'crear_post' %}" role="button">
+                <a class="btn btn-light btn-lg" href="{% url 'blog:crear_post' %}" role="button">
                     <i class="fas fa-plus"></i> Crear Nueva Publicación
                 </a>
             </div>
@@ -69,16 +69,16 @@
             </div>
             <div class="card-body">
                 <div class="list-group list-group-flush">
-                    <a href="{% url 'crear_autor' %}" class="list-group-item list-group-item-action">
+                    <a href="{% url 'blog:crear_autor' %}" class="list-group-item list-group-item-action">
                         <i class="fas fa-user-plus"></i> Registrar Nuevo Autor
                     </a>
-                    <a href="{% url 'crear_post' %}" class="list-group-item list-group-item-action">
+                    <a href="{% url 'blog:crear_post' %}" class="list-group-item list-group-item-action">
                         <i class="fas fa-edit"></i> Escribir Publicación
                     </a>
-                    <a href="{% url 'crear_comentario' %}" class="list-group-item list-group-item-action">
+                    <a href="{% url 'blog:crear_comentario' %}" class="list-group-item list-group-item-action">
                         <i class="fas fa-comment-plus"></i> Agregar Comentario
                     </a>
-                    <a href="{% url 'buscar_posts' %}" class="list-group-item list-group-item-action">
+                    <a href="{% url 'blog:buscar_posts' %}" class="list-group-item list-group-item-action">
                         <i class="fas fa-search"></i> Buscar Contenido
                     </a>
                 </div>

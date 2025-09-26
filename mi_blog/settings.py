@@ -22,6 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-o!hju6bhplt81a3(9m3u7!3mtk&=2e2)h217nb5_y7+y9hxnc*'
 
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -158,3 +159,4 @@ LOGIN_REDIRECT_URL = 'pages:list'
 LOGOUT_REDIRECT_URL = 'pages:list'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+

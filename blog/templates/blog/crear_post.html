@@ -34,7 +34,7 @@
                             {% endif %}
                             <div class="form-text">
                                 ¿No encuentras el autor? 
-                                <a href="{% url 'crear_autor' %}" target="_blank">Crear nuevo autor</a>
+                                <a href="{% url 'blog:crear_autor' %}" target="_blank">Crear nuevo autor</a>
                             </div>
                         </div>
                         
@@ -63,7 +63,7 @@
                     </div>
                     
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                        <a href="{% url 'inicio' %}" class="btn btn-secondary me-md-2">
+                        <a href="{% url 'blog:inicio' %}" class="btn btn-secondary me-md-2">
                             <i class="fas fa-arrow-left"></i> Cancelar
                         </a>
                         <button type="submit" class="btn btn-success">

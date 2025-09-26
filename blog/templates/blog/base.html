@@ -34,7 +34,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="{% url 'inicio' %}">
+            <a class="navbar-brand" href="{% url 'blog:inicio' %}">
                 <i class="fas fa-blog"></i> Mi Blog Personal
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -43,7 +43,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'inicio' %}">
+                        <a class="nav-link" href="{% url 'blog:inicio' %}">
                             <i class="fas fa-home"></i> Inicio
                         </a>
                     </li>
@@ -52,19 +52,19 @@
                             <i class="fas fa-plus"></i> Crear
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{% url 'crear_autor' %}">
+                            <li><a class="dropdown-item" href="{% url 'blog:crear_autor' %}">
                                 <i class="fas fa-user"></i> Nuevo Autor
                             </a></li>
-                            <li><a class="dropdown-item" href="{% url 'crear_post' %}">
+                            <li><a class="dropdown-item" href="{% url 'blog:crear_post' %}">
                                 <i class="fas fa-edit"></i> Nueva Publicación
                             </a></li>
-                            <li><a class="dropdown-item" href="{% url 'crear_comentario' %}">
+                            <li><a class="dropdown-item" href="{% url 'blog:crear_comentario' %}">
                                 <i class="fas fa-comment"></i> Nuevo Comentario
                             </a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'buscar_posts' %}">
+                        <a class="nav-link" href="{% url 'blog:buscar_posts' %}">
                             <i class="fas fa-search"></i> Buscar
                         </a>
                     </li>
