@@ -19,7 +19,7 @@ def crear_autor(request):
         if form.is_valid():
             form.save()
             messages.success(request, '¡Autor creado exitosamente!')
-            return redirect('inicio')
+            return redirect('blog:inicio')
         else:
             messages.error(request, 'Por favor corrige los errores del formulario.')
     else:
@@ -34,7 +34,7 @@ def crear_post(request):
         if form.is_valid():
             form.save()
             messages.success(request, '¡Publicación creada exitosamente!')
-            return redirect('inicio')
+            return redirect('blog:inicio')
         else:
             messages.error(request, 'Por favor corrige los errores del formulario.')
     else:
@@ -49,7 +49,7 @@ def crear_comentario(request):
         if form.is_valid():
             form.save()
             messages.success(request, '¡Comentario agregado exitosamente!')
-            return redirect('inicio')
+            return redirect('blog:inicio')
         else:
             messages.error(request, 'Por favor corrige los errores del formulario.')
     else:
